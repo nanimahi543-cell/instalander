@@ -8,6 +8,21 @@
 
 <title>InstaLander</title>
 
+<meta
+name="description"
+content="Download Instagram reels videos stories and posts in HD quality instantly with InstaLander."
+>
+
+<meta
+name="keywords"
+content="instagram downloader,reels downloader,instagram reels download,insta video saver"
+>
+
+<meta
+name="robots"
+content="index, follow"
+>
+
 <style>
 
 *{
@@ -59,11 +74,11 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:1px solid rgba(0,255,136,0.2);
-  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,255,136,0.15);
+  backdrop-filter:blur(20px);
   position:sticky;
   top:0;
-  background:#050505d7;
+  background:rgba(5,5,5,0.8);
   z-index:100;
 }
 
@@ -89,14 +104,13 @@ nav{
 
 .nav-btn:hover{
   transform:scale(1.05);
-  box-shadow:0 0 45px #00ff88;
 }
 
 /* HERO */
 
 .hero{
   width:100%;
-  min-height:90vh;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -107,12 +121,12 @@ nav{
 
 .tag{
   padding:12px 25px;
-  border:1px solid rgba(0,255,136,0.3);
   border-radius:50px;
   background:rgba(0,255,136,0.08);
   color:#00ff88;
   margin-bottom:30px;
-  box-shadow:0 0 20px rgba(0,255,136,0.2);
+  border:1px solid rgba(0,255,136,0.15);
+  backdrop-filter:blur(10px);
 }
 
 .hero h1{
@@ -145,13 +159,13 @@ nav{
   flex:1;
   min-width:300px;
   padding:22px;
-  background:#0d0d0d;
-  border:1px solid rgba(0,255,136,0.3);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
   border-radius:20px;
   color:white;
   font-size:18px;
   outline:none;
-  transition:0.3s;
 }
 
 .input-box input:focus{
@@ -174,7 +188,6 @@ nav{
 
 .download-btn:hover{
   transform:scale(1.05);
-  box-shadow:0 0 60px #00ff88;
 }
 
 /* TOAST */
@@ -182,13 +195,10 @@ nav{
 #toast{
 
   position:fixed;
-
   top:30px;
-
   right:30px;
 
   background:#00ff88;
-
   color:black;
 
   padding:18px 28px;
@@ -255,28 +265,23 @@ nav{
 
 }
 
-.premium-loader h2{
-
-  margin-top:35px;
-  color:#00ff88;
-  font-size:32px;
-  text-shadow:0 0 20px #00ff88;
-
-}
-
-.premium-loader p{
-
-  margin-top:12px;
-  color:#bdbdbd;
-
-}
-
 @keyframes spin{
 
   100%{
     transform:rotate(360deg);
   }
 
+}
+
+.premium-loader h2{
+  margin-top:35px;
+  color:#00ff88;
+  font-size:32px;
+}
+
+.premium-loader p{
+  margin-top:12px;
+  color:#bdbdbd;
 }
 
 /* PREVIEW */
@@ -298,14 +303,15 @@ nav{
 .preview-card{
 
   width:100%;
-
   max-width:1100px;
 
   margin:auto;
 
-  background:#0c0c0c;
+  background:rgba(255,255,255,0.04);
 
-  border:1px solid rgba(0,255,136,0.2);
+  backdrop-filter:blur(20px);
+
+  border:1px solid rgba(255,255,255,0.08);
 
   border-radius:35px;
 
@@ -318,11 +324,6 @@ nav{
   align-items:center;
 
   justify-content:center;
-
-  box-shadow:
-  0 0 50px rgba(0,255,136,0.12);
-
-  animation:fadeUp 0.5s ease;
 
 }
 
@@ -340,47 +341,20 @@ nav{
 }
 
 .preview-content{
-
   flex:1;
-
   text-align:left;
-
 }
 
 .preview-content h2{
-
   font-size:42px;
-
   color:#00ff88;
-
-  text-shadow:0 0 20px #00ff88;
-
 }
 
 .preview-content p{
-
   margin-top:18px;
-
   color:#cfcfcf;
-
   line-height:1.8;
-
   font-size:18px;
-
-}
-
-@keyframes fadeUp{
-
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
 }
 
 /* FEATURES */
@@ -395,17 +369,26 @@ nav{
 }
 
 .card{
-  background:#0c0c0c;
-  border:1px solid rgba(0,255,136,0.15);
+
+  background:rgba(255,255,255,0.04);
+
+  backdrop-filter:blur(20px);
+
+  border:1px solid rgba(255,255,255,0.08);
+
   padding:35px;
+
   border-radius:25px;
+
   transition:0.3s;
+
+  animation:floating 4s ease-in-out infinite;
+
 }
 
 .card:hover{
   transform:translateY(-10px);
   border-color:#00ff88;
-  box-shadow:0 0 35px rgba(0,255,136,0.25);
 }
 
 .icon{
@@ -419,8 +402,6 @@ nav{
   font-size:30px;
   margin:auto;
   color:#00ff88;
-  border:1px solid rgba(0,255,136,0.3);
-  box-shadow:0 0 20px rgba(0,255,136,0.2);
 }
 
 .card h2{
@@ -447,21 +428,24 @@ nav{
 }
 
 .stat{
-  background:#0c0c0c;
-  padding:40px;
-  border-radius:25px;
-  border:1px solid rgba(0,255,136,0.15);
-  transition:0.3s;
-}
 
-.stat:hover{
-  box-shadow:0 0 35px rgba(0,255,136,0.25);
+  background:rgba(255,255,255,0.04);
+
+  backdrop-filter:blur(20px);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  padding:40px;
+
+  border-radius:25px;
+
+  animation:floating 4s ease-in-out infinite;
+
 }
 
 .stat h3{
   font-size:50px;
   color:#00ff88;
-  text-shadow:0 0 20px #00ff88;
 }
 
 .stat p{
@@ -470,12 +454,30 @@ nav{
   font-size:18px;
 }
 
+/* FLOAT */
+
+@keyframes floating{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
 footer{
   margin-top:100px;
   padding:35px;
   text-align:center;
   color:#888;
-  border-top:1px solid rgba(0,255,136,0.15);
+  border-top:1px solid rgba(255,255,255,0.08);
 }
 
 /* MOBILE */
@@ -483,23 +485,16 @@ footer{
 @media(max-width:900px){
 
   .preview-card{
-
     flex-direction:column;
-
     text-align:center;
-
   }
 
   .preview-content{
-
     text-align:center;
-
   }
 
   #previewVideo{
-
     width:100%;
-
   }
 
 }
@@ -540,7 +535,7 @@ footer{
 
 </div>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 
 <nav>
 
@@ -565,10 +560,9 @@ Safe • Fast • Unlimited Downloads
 <h1>INSTALANDER</h1>
 
 <p>
-Download Instagram Reels, Videos, Stories,
-Highlights, Posts and Photos instantly with
-blazing fast speed. No login required.
-Secure and professional downloading experience.
+Download Instagram Reels, Videos,
+Stories, Highlights, Posts and Photos
+instantly with blazing fast speed.
 </p>
 
 <div class="input-box">
@@ -628,34 +622,26 @@ Download HD Video
 
 <div class="card">
 <div class="icon">⚡</div>
-<h2>Reels Download</h2>
-<p>
-Download Instagram reels in high quality instantly.
-</p>
+<h2>Lightning Fast</h2>
+<p>Ultra fast Instagram reel downloads.</p>
 </div>
 
 <div class="card">
-<div class="icon">📸</div>
-<h2>Stories Saver</h2>
-<p>
-Save Instagram stories safely without login.
-</p>
+<div class="icon">📱</div>
+<h2>Mobile Optimized</h2>
+<p>Perfect responsive experience for all devices.</p>
+</div>
+
+<div class="card">
+<div class="icon">🔒</div>
+<h2>Secure</h2>
+<p>No login required for downloads.</p>
 </div>
 
 <div class="card">
 <div class="icon">🔥</div>
-<h2>Highlights</h2>
-<p>
-Download Instagram highlights with blazing speed.
-</p>
-</div>
-
-<div class="card">
-<div class="icon">💚</div>
-<h2>Posts & Photos</h2>
-<p>
-Download Instagram posts and images professionally.
-</p>
+<h2>HD Quality</h2>
+<p>Download videos in premium quality.</p>
 </div>
 
 </div>
@@ -665,13 +651,13 @@ Download Instagram posts and images professionally.
 <div class="stats">
 
 <div class="stat">
-<h3>10M+</h3>
-<p>Downloads Completed</p>
+<h3 id="downloadCount">0</h3>
+<p>Total Downloads</p>
 </div>
 
 <div class="stat">
-<h3>100%</h3>
-<p>Secure Downloads</p>
+<h3>99.9%</h3>
+<p>Server Uptime</p>
 </div>
 
 <div class="stat">
@@ -684,7 +670,7 @@ Download Instagram posts and images professionally.
 </section>
 
 <footer>
-© 2026 InstaLander • Neon Instagram Downloader
+© 2026 InstaLander • Premium Instagram Downloader
 </footer>
 
 <script>
@@ -711,6 +697,8 @@ function showToast(message){
   }, 3000);
 
 }
+
+/* AUTO PASTE */
 
 const instaInput =
 document.getElementById(
@@ -743,6 +731,66 @@ instaInput.addEventListener(
     }
 
 });
+
+/* COUNTER */
+
+async function updateCounter(){
+
+  try{
+
+    const response =
+    await fetch("/stats");
+
+    const data =
+    await response.json();
+
+    animateCounter(
+      data.downloads
+    );
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+function animateCounter(target){
+
+  let current = 0;
+
+  const element =
+  document.getElementById(
+    "downloadCount"
+  );
+
+  const increment =
+  Math.ceil(target / 100);
+
+  const interval =
+  setInterval(() => {
+
+    current += increment;
+
+    if(current >= target){
+
+      current = target;
+
+      clearInterval(interval);
+
+    }
+
+    element.innerText =
+    current.toLocaleString();
+
+  }, 20);
+
+}
+
+updateCounter();
+
+/* DOWNLOAD */
 
 async function downloadMedia(){
 
@@ -815,6 +863,8 @@ async function downloadMedia(){
       showToast(
         "Video Ready"
       );
+
+      updateCounter();
 
     }else{
 
