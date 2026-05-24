@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>InstaLander</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#050505;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+  content:'';
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:#00ff88;
+  filter:blur(180px);
+  opacity:0.15;
+  top:-150px;
+  left:-150px;
+  z-index:-1;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:#00ff88;
+  filter:blur(180px);
+  opacity:0.1;
+  bottom:-150px;
+  right:-150px;
+  z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+  width:100%;
+  padding:25px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(0,255,136,0.2);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  background:#050505d7;
+  z-index:100;
+}
+
+.logo{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:4px;
+  color:#00ff88;
+  text-shadow:0 0 25px #00ff88;
+}
+
+.nav-btn{
+  padding:14px 30px;
+  border:none;
+  border-radius:15px;
+  background:#00ff88;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 0 25px #00ff88;
+}
+
+.nav-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 45px #00ff88;
+}
+
+/* HERO */
+
+.hero{
+  width:100%;
+  min-height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+}
+
+.tag{
+  padding:12px 25px;
+  border:1px solid rgba(0,255,136,0.3);
+  border-radius:50px;
+  background:rgba(0,255,136,0.08);
+  color:#00ff88;
+  margin-bottom:30px;
+  box-shadow:0 0 20px rgba(0,255,136,0.2);
+}
+
+.hero h1{
+  font-size:90px;
+  color:#00ff88;
+  text-shadow:0 0 35px #00ff88;
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:900px;
+  color:#cfcfcf;
+  line-height:1.8;
+  font-size:20px;
+}
+
+/* INPUT */
+
+.input-box{
+  margin-top:50px;
+  width:100%;
+  max-width:1000px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.input-box input{
+  flex:1;
+  min-width:300px;
+  padding:22px;
+  background:#0d0d0d;
+  border:1px solid rgba(0,255,136,0.3);
+  border-radius:20px;
+  color:white;
+  font-size:18px;
+  outline:none;
+  transition:0.3s;
+}
+
+.input-box input:focus{
+  border-color:#00ff88;
+  box-shadow:0 0 30px rgba(0,255,136,0.4);
+}
+
+.download-btn{
+  padding:22px 45px;
+  border:none;
+  border-radius:20px;
+  background:#00ff88;
+  color:black;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 0 30px #00ff88;
+}
+
+.download-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 60px #00ff88;
+}
+
+/* TOAST */
+
+#toast{
+
+  position:fixed;
+
+  top:30px;
+
+  right:30px;
+
+  background:#00ff88;
+
+  color:black;
+
+  padding:18px 28px;
+
+  border-radius:16px;
+
+  font-weight:bold;
+
+  box-shadow:
+  0 0 30px #00ff88;
+
+  z-index:10000;
+
+  opacity:0;
+
+  transform:translateY(-30px);
+
+  transition:0.4s;
+
+}
+
+#toast.show{
+
+  opacity:1;
+
+  transform:translateY(0);
+
+}
+
+/* LOADER */
+
+.premium-loader{
+
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(5,5,5,0.92);
+  backdrop-filter:blur(12px);
+  z-index:9999;
+
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+
+}
+
+.loader-ring{
+
+  width:110px;
+  height:110px;
+  border-radius:50%;
+
+  border:6px solid rgba(0,255,136,0.15);
+  border-top:6px solid #00ff88;
+
+  animation:spin 1s linear infinite;
+
+  box-shadow:
+  0 0 30px #00ff88,
+  inset 0 0 30px #00ff88;
+
+}
+
+.premium-loader h2{
+
+  margin-top:35px;
+  color:#00ff88;
+  font-size:32px;
+  text-shadow:0 0 20px #00ff88;
+
+}
+
+.premium-loader p{
+
+  margin-top:12px;
+  color:#bdbdbd;
+
+}
+
+@keyframes spin{
+
+  100%{
+    transform:rotate(360deg);
+  }
+
+}
+
+/* PREVIEW */
+
+#previewBox{
+
+  display:none;
+
+  width:100%;
+
+  margin-top:70px;
+
+  justify-content:center;
+
+  align-items:center;
+
+}
+
+.preview-card{
+
+  width:100%;
+
+  max-width:1100px;
+
+  margin:auto;
+
+  background:#0c0c0c;
+
+  border:1px solid rgba(0,255,136,0.2);
+
+  border-radius:35px;
+
+  padding:35px;
+
+  display:flex;
+
+  gap:35px;
+
+  align-items:center;
+
+  justify-content:center;
+
+  box-shadow:
+  0 0 50px rgba(0,255,136,0.12);
+
+  animation:fadeUp 0.5s ease;
+
+}
+
+#previewVideo{
+
+  width:320px;
+
+  border-radius:25px;
+
+  border:2px solid #00ff88;
+
+  box-shadow:
+  0 0 40px rgba(0,255,136,0.35);
+
+}
+
+.preview-content{
+
+  flex:1;
+
+  text-align:left;
+
+}
+
+.preview-content h2{
+
+  font-size:42px;
+
+  color:#00ff88;
+
+  text-shadow:0 0 20px #00ff88;
+
+}
+
+.preview-content p{
+
+  margin-top:18px;
+
+  color:#cfcfcf;
+
+  line-height:1.8;
+
+  font-size:18px;
+
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* FEATURES */
+
+.features{
+  width:100%;
+  max-width:1300px;
+  margin-top:90px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#0c0c0c;
+  border:1px solid rgba(0,255,136,0.15);
+  padding:35px;
+  border-radius:25px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border-color:#00ff88;
+  box-shadow:0 0 35px rgba(0,255,136,0.25);
+}
+
+.icon{
+  width:70px;
+  height:70px;
+  border-radius:20px;
+  background:rgba(0,255,136,0.1);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:30px;
+  margin:auto;
+  color:#00ff88;
+  border:1px solid rgba(0,255,136,0.3);
+  box-shadow:0 0 20px rgba(0,255,136,0.2);
+}
+
+.card h2{
+  margin-top:25px;
+  color:#00ff88;
+  font-size:24px;
+}
+
+.card p{
+  margin-top:15px;
+  color:#bcbcbc;
+  line-height:1.7;
+}
+
+/* STATS */
+
+.stats{
+  width:100%;
+  max-width:1200px;
+  margin-top:80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.stat{
+  background:#0c0c0c;
+  padding:40px;
+  border-radius:25px;
+  border:1px solid rgba(0,255,136,0.15);
+  transition:0.3s;
+}
+
+.stat:hover{
+  box-shadow:0 0 35px rgba(0,255,136,0.25);
+}
+
+.stat h3{
+  font-size:50px;
+  color:#00ff88;
+  text-shadow:0 0 20px #00ff88;
+}
+
+.stat p{
+  margin-top:15px;
+  color:#bdbdbd;
+  font-size:18px;
+}
+
+footer{
+  margin-top:100px;
+  padding:35px;
+  text-align:center;
+  color:#888;
+  border-top:1px solid rgba(0,255,136,0.15);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .preview-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+  }
+
+  .preview-content{
+
+    text-align:center;
+
+  }
+
+  #previewVideo{
+
+    width:100%;
+
+  }
+
+}
+
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .logo{
+    font-size:28px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="toast"></div>
+
+<!-- LOADER -->
+
+<div class="premium-loader" id="premiumLoader">
+
+  <div class="loader-ring"></div>
+
+  <h2>Fetching Video...</h2>
+
+  <p>Preparing high quality download</p>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+INSTALANDER
+</div>
+
+<button class="nav-btn">
+Start Downloading
+</button>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="tag">
+Safe • Fast • Unlimited Downloads
+</div>
+
+<h1>INSTALANDER</h1>
+
+<p>
+Download Instagram Reels, Videos, Stories,
+Highlights, Posts and Photos instantly with
+blazing fast speed. No login required.
+Secure and professional downloading experience.
+</p>
+
+<div class="input-box">
+
+<input
+type="text"
+id="instaLink"
+placeholder="Paste Instagram link here..."
+>
+
+<button
+class="download-btn"
+onclick="downloadMedia()"
+>
+Get Video
+</button>
+
+</div>
+
+<!-- PREVIEW -->
+
+<div id="previewBox">
+
+<div class="preview-card">
+
+<video
+id="previewVideo"
+controls
+playsinline
+></video>
+
+<div class="preview-content">
+
+<h2>Video Ready</h2>
+
+<p>
+Your Instagram reel has been successfully processed.
+</p>
+
+<a id="downloadLink" download>
+
+<button class="download-btn">
+Download HD Video
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FEATURES -->
+
+<div class="features">
+
+<div class="card">
+<div class="icon">⚡</div>
+<h2>Reels Download</h2>
+<p>
+Download Instagram reels in high quality instantly.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📸</div>
+<h2>Stories Saver</h2>
+<p>
+Save Instagram stories safely without login.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🔥</div>
+<h2>Highlights</h2>
+<p>
+Download Instagram highlights with blazing speed.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💚</div>
+<h2>Posts & Photos</h2>
+<p>
+Download Instagram posts and images professionally.
+</p>
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<h3>10M+</h3>
+<p>Downloads Completed</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Secure Downloads</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Online Access</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 InstaLander • Neon Instagram Downloader
+</footer>
+
+<script>
+
+function showToast(message){
+
+  const toast =
+  document.getElementById(
+    "toast"
+  );
+
+  toast.innerText = message;
+
+  toast.classList.add(
+    "show"
+  );
+
+  setTimeout(() => {
+
+    toast.classList.remove(
+      "show"
+    );
+
+  }, 3000);
+
+}
+
+const instaInput =
+document.getElementById(
+  "instaLink"
+);
+
+instaInput.addEventListener(
+  "input",
+  () => {
+
+    const value =
+    instaInput.value.trim();
+
+    if(
+      value.includes("instagram.com/reel/") ||
+      value.includes("instagram.com/p/")
+    ){
+
+      clearTimeout(
+        window.autoPasteTimer
+      );
+
+      window.autoPasteTimer =
+      setTimeout(() => {
+
+        downloadMedia();
+
+      }, 800);
+
+    }
+
+});
+
+async function downloadMedia(){
+
+  const link =
+  document.getElementById(
+    "instaLink"
+  ).value;
+
+  if(link === ""){
+
+    showToast(
+      "Paste Instagram link first"
+    );
+
+    return;
+  }
+
+  document.getElementById(
+    "premiumLoader"
+  ).style.display = "flex";
+
+  document.getElementById(
+    "previewBox"
+  ).style.display = "none";
+
+  try{
+
+    const response =
+    await fetch("/download", {
+
+      method:"POST",
+
+      headers:{
+        "Content-Type":"application/json"
+      },
+
+      body:JSON.stringify({
+        url:link
+      })
+
+    });
+
+    const data =
+    await response.json();
+
+    document.getElementById(
+      "premiumLoader"
+    ).style.display = "none";
+
+    if(data.success){
+
+      document.getElementById(
+        "previewBox"
+      ).style.display = "flex";
+
+      document.getElementById(
+        "previewVideo"
+      ).src = data.video;
+
+      document.getElementById(
+        "downloadLink"
+      ).href = data.video;
+
+      document.getElementById(
+        "previewBox"
+      ).scrollIntoView({
+        behavior:"smooth"
+      });
+
+      showToast(
+        "Video Ready"
+      );
+
+    }else{
+
+      showToast(
+        "Download Failed"
+      );
+
+    }
+
+  }catch(error){
+
+    document.getElementById(
+      "premiumLoader"
+    ).style.display = "none";
+
+    showToast(
+      "Server Error"
+    );
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
