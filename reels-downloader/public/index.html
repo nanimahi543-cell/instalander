@@ -2,11 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta name="google-site-verification" content="-mzAPzM5kCcRM-pOf-Krg-JMy5zDep80ZmL6EdxhcZ4" />
-  <link rel="icon" href="/favicon.ico">
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>
 Instagram Reel Downloader - InstaLander
@@ -14,18 +16,20 @@ Instagram Reel Downloader - InstaLander
 
 <meta
 name="description"
-content="Download Instagram reels, videos, stories and posts instantly in HD quality with InstaLander. Fast, secure and free Instagram downloader."
+content="Download Instagram reels, videos, stories and posts instantly in HD quality with InstaLander."
 >
 
 <meta
 name="keywords"
-content="instagram downloader,reels downloader,instagram reels download,insta video saver"
+content="instagram downloader,reels downloader,instagram reels download"
 >
 
 <meta
 name="robots"
 content="index, follow"
 >
+
+<link rel="icon" href="/favicon.ico">
 
 <style>
 
@@ -42,31 +46,31 @@ body{
   overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* LIGHTER BACKGROUND */
 
 body::before{
   content:'';
   position:fixed;
-  width:500px;
-  height:500px;
+  width:350px;
+  height:350px;
   background:#00ff88;
-  filter:blur(180px);
-  opacity:0.15;
-  top:-150px;
-  left:-150px;
+  filter:blur(90px);
+  opacity:0.12;
+  top:-100px;
+  left:-100px;
   z-index:-1;
 }
 
 body::after{
   content:'';
   position:fixed;
-  width:500px;
-  height:500px;
+  width:350px;
+  height:350px;
   background:#00ff88;
-  filter:blur(180px);
-  opacity:0.1;
-  bottom:-150px;
-  right:-150px;
+  filter:blur(90px);
+  opacity:0.08;
+  bottom:-100px;
+  right:-100px;
   z-index:-1;
 }
 
@@ -74,40 +78,34 @@ body::after{
 
 nav{
   width:100%;
-  padding:25px 8%;
+  padding:20px 7%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:1px solid rgba(0,255,136,0.15);
-  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  backdrop-filter:blur(8px);
   position:sticky;
   top:0;
-  background:rgba(5,5,5,0.8);
+  background:rgba(5,5,5,0.75);
   z-index:100;
 }
 
 .logo{
-  font-size:38px;
+  font-size:32px;
   font-weight:900;
-  letter-spacing:4px;
+  letter-spacing:3px;
   color:#00ff88;
-  text-shadow:0 0 25px #00ff88;
+  text-shadow:0 0 15px #00ff88;
 }
 
 .nav-btn{
-  padding:14px 30px;
+  padding:12px 24px;
   border:none;
-  border-radius:15px;
+  border-radius:14px;
   background:#00ff88;
   color:black;
   font-weight:bold;
   cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 0 25px #00ff88;
-}
-
-.nav-btn:hover{
-  transform:scale(1.05);
 }
 
 /* HERO */
@@ -120,122 +118,98 @@ nav{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:40px 20px;
+  padding:40px 18px;
 }
 
 .tag{
-  padding:12px 25px;
+  padding:10px 20px;
   border-radius:50px;
   background:rgba(0,255,136,0.08);
   color:#00ff88;
-  margin-bottom:30px;
+  margin-bottom:25px;
   border:1px solid rgba(0,255,136,0.15);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(8px);
 }
 
 .hero h1{
-  font-size:90px;
+  font-size:80px;
   color:#00ff88;
-  text-shadow:0 0 35px #00ff88;
-  margin-bottom:20px;
+  text-shadow:0 0 25px #00ff88;
+  margin-bottom:18px;
 }
 
 .hero p{
-  max-width:900px;
+  max-width:850px;
   color:#cfcfcf;
-  line-height:1.8;
-  font-size:20px;
+  line-height:1.7;
+  font-size:18px;
 }
 
 /* INPUT */
 
 .input-box{
-  margin-top:50px;
+  margin-top:45px;
   width:100%;
-  max-width:1000px;
+  max-width:950px;
   display:flex;
-  gap:20px;
+  gap:18px;
   flex-wrap:wrap;
   justify-content:center;
 }
 
 .input-box input{
   flex:1;
-  min-width:300px;
-  padding:22px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  backdrop-filter:blur(20px);
-  border-radius:20px;
+  min-width:280px;
+  padding:20px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  backdrop-filter:blur(8px);
+  border-radius:18px;
   color:white;
-  font-size:18px;
+  font-size:17px;
   outline:none;
 }
 
 .input-box input:focus{
   border-color:#00ff88;
-  box-shadow:0 0 30px rgba(0,255,136,0.4);
 }
 
 .download-btn{
-  padding:22px 45px;
+  padding:20px 40px;
   border:none;
-  border-radius:20px;
+  border-radius:18px;
   background:#00ff88;
   color:black;
-  font-size:18px;
+  font-size:17px;
   font-weight:bold;
   cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 0 30px #00ff88;
-}
-
-.download-btn:hover{
-  transform:scale(1.05);
 }
 
 /* TOAST */
 
 #toast{
-
   position:fixed;
-  top:30px;
-  right:30px;
-
+  top:25px;
+  right:25px;
   background:#00ff88;
   color:black;
-
-  padding:18px 28px;
-
-  border-radius:16px;
-
+  padding:16px 24px;
+  border-radius:14px;
   font-weight:bold;
-
-  box-shadow:
-  0 0 30px #00ff88;
-
   z-index:10000;
-
   opacity:0;
-
-  transform:translateY(-30px);
-
-  transition:0.4s;
-
+  transform:translateY(-20px);
+  transition:0.3s;
 }
 
 #toast.show{
-
   opacity:1;
-
   transform:translateY(0);
-
 }
 
 /* LOADER */
 
 .premium-loader{
-
   display:none;
   position:fixed;
   top:0;
@@ -243,105 +217,68 @@ nav{
   width:100%;
   height:100%;
   background:rgba(5,5,5,0.92);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(8px);
   z-index:9999;
-
   justify-content:center;
   align-items:center;
   flex-direction:column;
-
 }
 
 .loader-ring{
-
-  width:110px;
-  height:110px;
+  width:95px;
+  height:95px;
   border-radius:50%;
-
-  border:6px solid rgba(0,255,136,0.15);
-  border-top:6px solid #00ff88;
-
+  border:5px solid rgba(0,255,136,0.15);
+  border-top:5px solid #00ff88;
   animation:spin 1s linear infinite;
-
-  box-shadow:
-  0 0 30px #00ff88,
-  inset 0 0 30px #00ff88;
-
 }
 
 @keyframes spin{
-
   100%{
     transform:rotate(360deg);
   }
-
 }
 
 .premium-loader h2{
-  margin-top:35px;
+  margin-top:28px;
   color:#00ff88;
-  font-size:32px;
+  font-size:28px;
 }
 
 .premium-loader p{
-  margin-top:12px;
+  margin-top:10px;
   color:#bdbdbd;
 }
 
 /* PREVIEW */
 
 #previewBox{
-
   display:none;
-
   width:100%;
-
-  margin-top:70px;
-
+  margin-top:60px;
   justify-content:center;
-
   align-items:center;
-
 }
 
 .preview-card{
-
   width:100%;
-  max-width:1100px;
-
+  max-width:1050px;
   margin:auto;
-
-  background:rgba(255,255,255,0.04);
-
-  backdrop-filter:blur(20px);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  border-radius:35px;
-
-  padding:35px;
-
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:30px;
+  padding:28px;
   display:flex;
-
-  gap:35px;
-
+  gap:30px;
   align-items:center;
-
   justify-content:center;
-
 }
 
 #previewVideo{
-
-  width:320px;
-
-  border-radius:25px;
-
+  width:300px;
+  border-radius:22px;
   border:2px solid #00ff88;
-
-  box-shadow:
-  0 0 40px rgba(0,255,136,0.35);
-
 }
 
 .preview-content{
@@ -350,138 +287,105 @@ nav{
 }
 
 .preview-content h2{
-  font-size:42px;
+  font-size:38px;
   color:#00ff88;
 }
 
 .preview-content p{
-  margin-top:18px;
+  margin-top:15px;
   color:#cfcfcf;
-  line-height:1.8;
-  font-size:18px;
+  line-height:1.7;
+  font-size:17px;
 }
 
 /* FEATURES */
 
 .features{
   width:100%;
-  max-width:1300px;
-  margin-top:90px;
+  max-width:1250px;
+  margin-top:80px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
 }
 
 .card{
-
-  background:rgba(255,255,255,0.04);
-
-  backdrop-filter:blur(20px);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  padding:35px;
-
-  border-radius:25px;
-
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:30px;
+  border-radius:22px;
   transition:0.3s;
-
-  animation:floating 4s ease-in-out infinite;
-
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-6px);
   border-color:#00ff88;
 }
 
 .icon{
-  width:70px;
-  height:70px;
-  border-radius:20px;
+  width:65px;
+  height:65px;
+  border-radius:18px;
   background:rgba(0,255,136,0.1);
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:30px;
+  font-size:28px;
   margin:auto;
   color:#00ff88;
 }
 
 .card h2{
-  margin-top:25px;
+  margin-top:22px;
   color:#00ff88;
-  font-size:24px;
+  font-size:22px;
 }
 
 .card p{
-  margin-top:15px;
+  margin-top:12px;
   color:#bcbcbc;
-  line-height:1.7;
+  line-height:1.6;
 }
 
 /* STATS */
 
 .stats{
   width:100%;
-  max-width:1200px;
-  margin-top:80px;
+  max-width:1150px;
+  margin-top:70px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
 }
 
 .stat{
-
-  background:rgba(255,255,255,0.04);
-
-  backdrop-filter:blur(20px);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  padding:40px;
-
-  border-radius:25px;
-
-  animation:floating 4s ease-in-out infinite;
-
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:35px;
+  border-radius:22px;
 }
 
 .stat h3{
-  font-size:50px;
+  font-size:45px;
   color:#00ff88;
 }
 
 .stat p{
-  margin-top:15px;
+  margin-top:12px;
   color:#bdbdbd;
-  font-size:18px;
+  font-size:17px;
 }
 
-/* FLOAT */
-
-@keyframes floating{
-
-  0%{
-    transform:translateY(0px);
-  }
-
-  50%{
-    transform:translateY(-8px);
-  }
-
-  100%{
-    transform:translateY(0px);
-  }
-
-}
+/* FOOTER */
 
 footer{
-  margin-top:100px;
-  padding:35px;
+  margin-top:90px;
+  padding:30px;
   text-align:center;
   color:#888;
-  border-top:1px solid rgba(255,255,255,0.08);
+  border-top:1px solid rgba(255,255,255,0.06);
 }
 
 /* MOBILE */
@@ -506,15 +410,19 @@ footer{
 @media(max-width:768px){
 
   .hero h1{
-    font-size:55px;
+    font-size:52px;
   }
 
   .hero p{
-    font-size:17px;
+    font-size:16px;
   }
 
   .logo{
-    font-size:28px;
+    font-size:24px;
+  }
+
+  .nav-btn{
+    display:none;
   }
 
 }
@@ -533,7 +441,7 @@ footer{
 
   <div class="loader-ring"></div>
 
-  <h2>Fetching Video...</h2>
+  <h2>Fetching Media...</h2>
 
   <p>Preparing high quality download</p>
 
@@ -558,15 +466,14 @@ Start Downloading
 <section class="hero">
 
 <div class="tag">
-Safe • Fast • Unlimited Downloads
+Fast • Secure • HD Downloads
 </div>
 
 <h1>INSTALANDER</h1>
 
 <p>
-Download Instagram Reels, Videos,
-Stories, Highlights, Posts and Photos
-instantly with blazing fast speed.
+Download Instagram reels, videos, posts,
+stories and highlights instantly in HD quality.
 </p>
 
 <div class="input-box">
@@ -581,7 +488,7 @@ placeholder="Paste Instagram link here..."
 class="download-btn"
 onclick="downloadMedia()"
 >
-Get Video
+Download
 </button>
 
 </div>
@@ -600,16 +507,16 @@ playsinline
 
 <div class="preview-content">
 
-<h2>Video Ready</h2>
+<h2>Media Ready</h2>
 
 <p>
-Your Instagram reel has been successfully processed.
+Your Instagram media has been processed successfully.
 </p>
 
 <a id="downloadLink" download>
 
 <button class="download-btn">
-Download HD Video
+Download HD
 </button>
 
 </a>
@@ -626,26 +533,26 @@ Download HD Video
 
 <div class="card">
 <div class="icon">⚡</div>
-<h2>Lightning Fast</h2>
-<p>Ultra fast Instagram reel downloads.</p>
+<h2>Fast Downloads</h2>
+<p>Download reels and posts instantly.</p>
 </div>
 
 <div class="card">
 <div class="icon">📱</div>
 <h2>Mobile Optimized</h2>
-<p>Perfect responsive experience for all devices.</p>
+<p>Smooth performance on mobile devices.</p>
+</div>
+
+<div class="card">
+<div class="icon">🔥</div>
+<h2>Stories & Highlights</h2>
+<p>Supports public stories and highlights.</p>
 </div>
 
 <div class="card">
 <div class="icon">🔒</div>
 <h2>Secure</h2>
 <p>No login required for downloads.</p>
-</div>
-
-<div class="card">
-<div class="icon">🔥</div>
-<h2>HD Quality</h2>
-<p>Download videos in premium quality.</p>
 </div>
 
 </div>
@@ -678,6 +585,8 @@ Download HD Video
 </footer>
 
 <script>
+
+/* TOAST */
 
 function showToast(message){
 
@@ -717,8 +626,7 @@ instaInput.addEventListener(
     instaInput.value.trim();
 
     if(
-      value.includes("instagram.com/reel/") ||
-      value.includes("instagram.com/p/")
+      value.includes("instagram.com/")
     ){
 
       clearTimeout(
@@ -730,7 +638,7 @@ instaInput.addEventListener(
 
         downloadMedia();
 
-      }, 800);
+      }, 700);
 
     }
 
@@ -748,47 +656,16 @@ async function updateCounter(){
     const data =
     await response.json();
 
-    animateCounter(
-      data.downloads
-    );
+    document.getElementById(
+      "downloadCount"
+    ).innerText =
+    data.downloads.toLocaleString();
 
   }catch(error){
 
     console.log(error);
 
   }
-
-}
-
-function animateCounter(target){
-
-  let current = 0;
-
-  const element =
-  document.getElementById(
-    "downloadCount"
-  );
-
-  const increment =
-  Math.ceil(target / 100);
-
-  const interval =
-  setInterval(() => {
-
-    current += increment;
-
-    if(current >= target){
-
-      current = target;
-
-      clearInterval(interval);
-
-    }
-
-    element.innerText =
-    current.toLocaleString();
-
-  }, 20);
 
 }
 
@@ -865,7 +742,7 @@ async function downloadMedia(){
       });
 
       showToast(
-        "Video Ready"
+        "Media Ready"
       );
 
       updateCounter();
